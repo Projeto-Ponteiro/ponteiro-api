@@ -17,4 +17,4 @@ jobs:
           HORUSEC_API_URL: ${{ secrets.HORUSEC_API_URL }}
         run: |
           curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest-beta
-          horusec start -p="./" -e="true" -a="dda18f34-fac1-4574-8505-6548b1e484d2" -u="https://6a558515d950-11899502608096553915.ngrok-free.app"
+          horusec start -p="./" -e="true" -a="b79f3a9e-13de-48ac-826f-54927d400022" -u="https://6a558515d950-11899502608096553915.ngrok-free.app"
