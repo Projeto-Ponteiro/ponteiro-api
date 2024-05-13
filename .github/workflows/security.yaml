@@ -1,0 +1,20 @@
+name: SecurityPipeline
+
+on: [push]
+
+jobs:
+  horusec-security:
+    name: horusec-security
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      with: # Necessário quando habilitado o autores de commit
+        fetch-depth: 0
+    - name: Running Horusec Security
+    env:
+          HORUSEC_REPOSITORY_ACCESS_TOKEN: ${{ secrets.HORUSEC_REPOSITORY_ACCESS_TOKEN }}
+          HORUSEC_API_URL: ${{ secrets.HORUSEC_API_URL }}
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest-beta
+          horusec start -p="./" -e="true" -a=HORUSEC_REPOSITORY_ACCESS_TOKEN: ${{ secrets.HORUSEC_REPOSITORY_ACCESS_TOKEN }}cd ../ -u=$HORUSEC_API_URL: ${{ secrets.HORUSEC_API_URL }}
