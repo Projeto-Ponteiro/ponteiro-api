@@ -45,3 +45,7 @@ group :development do
   # gem "spring"
 end
 
+
+gem "jwt", "~> 2.8"
+
+gem "dotenv-rails", "~> 3.1"
